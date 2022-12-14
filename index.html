@@ -87,7 +87,20 @@
 										gains in perceptual quality using SRGAN. The MOS scores
 										obtained with SRGAN are closer to those of the original
 										high-resolution images than to those obtained with any
-										state-of-the-art method.</p>
+										state-of-the-art method.
+										
+										Generative Adversarial Networks (GAN) are an alternate way of estimating generative models via an
+										adversarial process where a game theoretic approach is involved to learn to generate from the training
+										distribution through minimax two-player game. As a part of my initial contributions to this project, I
+										had also implemented a vanilla GAN[1] to generate handwritten digits from a noisy latent space. Single
+										image super-resolution (SISR) has been a notoriously challenging ill-posed problem, which aims to obtain
+										a high-resolution output from one of its low-resolution versions. Despite the breakthroughs in accuracy
+										and speed of SISR using faster and deeper convolutional neural networks (CNN), one central problem to
+										recover the finer texture details super-resolving at large upscaling factors remains largely unsolved. With
+										this motivation, I have attempted to implement the idea proposed by Christian Ledig et al.[3] to use a
+										GAN comprising of deep convolutional networks for upscaling (4× factor) natural images to produce the
+										then state-of-the-art photo-realistic super-resolved images.
+									</p>
 								</header>
 								<a href="#" class="image main"><img src="images/index_abstract.jpeg" alt="" /></a>
 							</article>
