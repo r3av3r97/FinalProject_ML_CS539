@@ -29,7 +29,7 @@
 							<li><a href="intro.html">Introduction</a></li>
 							<li><a href="dataset.html">Dataset</a></li>
 							<li class="active"><a href="method.html">Method</a></li>
-							<li><a href="image_preprocessing.html">Image Preprocessing</a></li>
+							<li><a href="image_preprocessing.html">Preprocessing</a></li>
 							<li><a href="evaluation.html">Evaluation</a></li>
 							<li><a href="conclusion.html">Conclusion</a></li>
 							<li><a href="add_features.html">Additional Features</a></li>
@@ -47,7 +47,6 @@
 							<section class="post">
 								<header class="major">
 									<h1>Method</h1>
-									<p>AAAA</p>
 								</header>
 								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
 								<p>In SISR the aim is to estimate a high-resolution, superresolved image I
@@ -105,132 +104,49 @@
 
 							<section class="post">
 								<header class="major">
-									<h1>Loss Function</h1>
-									<p>AAAA</p>
+									<h1>PSNR and SSIM</h1>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Perceptual loss function
-									The definition of our perceptual loss function l
-									SR is critical for the performance of our generator network. While
-									l
-									SR is commonly modeled based on the MSE [10, 48], we
-									improve on Johnson et al. [33] and Bruna et al. [5] and
-									design a loss function that assesses a solution with respect
-									to perceptually relevant characteristics. We formulate the
-									perceptual loss as the weighted sum of a content loss (l
-									SR
-									X
-									)
-									and an adversarial loss component as:
-									l
-									SR = l
-									SR
-									X
-									|{z}
-									content loss
-									+ 10−3
-									l
-									SR
-									Gen
-									| {z }
-									adversarial loss
-									| {z }
-									perceptual loss (for VGG based content losses)
-									(3)
-									In the following we describe possible choices for the content loss l
-									SR
-									X
-									and the adversarial loss l
-									SR
-									Gen.
-									2.2.1 Content loss
-									The pixel-wise MSE loss is calculated as:
-									l
-									SR
-									MSE =
-									1
-									r
-									2W H
-									X
-									rW
-									x=1
-									X
-									rH
-									y=1
-									(I
-									HR
-									x,y − GθG (I
-									LR)x,y)
-									2
-									(4)
-									This is the most widely used optimization target for image
-									SR on which many state-of-the-art approaches rely [10,
-									48]. However, while achieving particularly high PSNR,
-									solutions of MSE optimization problems often lack highfrequency content which results in perceptually unsatisfying solutions with overly smooth textures (c.f . Figure 2).
-									Instead of relying on pixel-wise losses we build on the
-									ideas of Gatys et al. [19], Bruna et al. [5] and Johnson et
-									al. [33] and use a loss function that is closer to perceptual
-									similarity. We define the VGG loss based on the ReLU
-									activation layers of the pre-trained 19 layer VGG network
-									described in Simonyan and Zisserman [49]. With φi,j we
-									indicate the feature map obtained by the j-th convolution
-									(after activation) before the i-th maxpooling layer within the
-									VGG19 network, which we consider given. We then define
-									the VGG loss as the euclidean distance between the feature
-									representations of a reconstructed image GθG (I
-									LR) and the
-									reference image I
-									HR:
-									l
-									SR
-									V GG/i.j =
-									1
-									Wi,jHi,j
-									W
-									Xi,j
-									x=1
-									H
-									Xi,j
-									y=1
-									(φi,j (I
-									HR)x,y
-									− φi,j (GθG (I
-									LR))x,y)
-									2
-									(5)
-									Here Wi,j and Hi,j describe the dimensions of the
-									respective feature maps within the VGG network.
-									2.2.2 Adversarial loss
-									In addition to the content losses described so far, we also
-									add the generative component of our GAN to the perceptual
-									loss. This encourages our network to favor solutions that
-									reside on the manifold of natural images, by trying to
-									fool the discriminator network. The generative loss l
-									SR
-									Gen
-									is defined based on the probabilities of the discriminator
-									DθD (GθG (I
-									LR)) over all training samples as:
-									l
-									SR
-									Gen =
-									X
-									N
-									n=1
-									− log DθD (GθG (I
-									LR)) (6)
-									Here, DθD (GθG (I
-									LR)) is the probability that the reconstructed image GθG (I
-									LR) is a natural HR image. For better
-									gradient behavior we minimize − log DθD (GθG (I
-									LR)) instead of log[1 − DθD (GθG (I
-									LR))] [22].</p>
+								<p>Peak signal-to-noise ratio (PSNR) is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation. Because many signals have a very wide dynamic range, PSNR is usually expressed as a logarithmic quantity using the decibel scale.
+
+									PSNR is commonly used to quantify reconstruction quality for images and video subject to lossy compression.
+									PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as
+									PSNR is most commonly used to measure the quality of reconstruction of lossy compression codecs (e.g., for image compression). The signal in this case is the original data, and the noise is the error introduced by compression. When comparing compression codecs, PSNR is an approximation to human perception of reconstruction quality.
+
+									Typical values for the PSNR in lossy image and video compression are between 30 and 50 dB, provided the bit depth is 8 bits, where higher is better. The processing quality of 12-bit images is considered high when the PSNR value is 60 dB or higher.[3][4] For 16-bit data typical values for the PSNR are between 60 and 80 dB.[5][6] Acceptable values for wireless transmission quality loss are considered to be about 20 dB to 25 dB.[7][8]
+
+									In the absence of noise, the two images I and K are identical, and thus the MSE is zero.
+									<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+									The structural similarity index measure (SSIM) is a method for predicting the perceived quality of digital television and cinematic pictures, as well as other kinds of digital images and videos. SSIM is used for measuring the similarity between two images. The SSIM index is a full reference metric; in other words, the measurement or prediction of image quality is based on an initial uncompressed or distortion-free image as reference.
+									<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								</p>
+							</section>
+
+							<section class="post">
+								<header class="major">
+									<h1>Loss Function</h1>
+								</header>
+								<p>Loss Function:
+
+									The SRGAN uses perpetual loss function (LSR)  which is the weighted sum of two loss components : content loss and adversarial loss. This loss is very important for the performance of the generator architecture:
+									
+									Content Loss: We use two types of content loss in this paper : pixelwise MSE loss for the SRResnet architecture, which is most common MSE loss for image Super Resolution. However MSE loss does not able to deal with high frequency content in the image that resulted in producing overly smooth images. Therefore the authors of the paper decided to  use loss of different VGG layers. This VGG loss is based on the ReLU activation layers of the pre-trained 19 layer VGG network. This loss is defined as follows:
+									<div class="image main"><img src="images/simplecontentloss.png" alt="" /></div>
+									Simple Content Loss
+									
+									<div class="image main"><img src="images/vggcontentloss.png" alt="" /></div>
+									VGG content loss
+									
+									Adversarial Loss: The Adversarial loss is the loss function that forces the generator to image more similar to high resolution image by using a discriminator that is trained to differentiate between high resolution and super resolution images.
+									
+									<div class="image main"><img src="images/adversarialloss.png" alt="" /></div>
+									Therefore total content loss of this architecture will be :
+									<div class="image main"><img src="images/totalpereptualloss-300x77.png" alt="" /></div>
+									</p>
 							</section>
 
 							<section class="post">
 								<header class="major">
 									<h1>Experiments</h1>
-									<p>AAAA</p>
 								</header>
 								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
 								<p>3.1. Data and similarity measures
@@ -399,6 +315,31 @@
 									SelfExSR. The distribution of all collected MOS ratings is
 									summarized in Figure 5.
 								</p>
+							</section>
+
+							<section class="post">
+								<header class="major">
+									<h1>Architecture</h1>
+								</header>
+								<p>Generator Architecture:
+
+									The generator architecture contains residual network instead of deep convolution networks because residual networks are easy to train and allows them to be substantially deeper in order to generate better results. This is because the residual network used a type of connections called skip connections.
+									
+									
+									
+									There are B residual blocks (16), originated by ResNet. Within the residual block, two convolutional layers are used, with small 3×3 kernels and 64 feature maps followed by batch-normalization layers and ParametricReLU as the activation function.
+									
+									The resolution of the input image is increased with two trained sub-pixel convolution layers.
+									
+									This generator architecture also uses parametric ReLU as an activation function which instead of using a fixed value for a parameter of the rectifier (alpha) like LeakyReLU. It adaptively learns the parameters of rectifier and   improves the accuracy at negligible extra computational cost
+									
+									  During the training, A high-resolution image (HR) is downsampled to a low-resolution image (LR). The generator architecture than tries to upsample the image from low resolution to super-resolution. After then the image is passed into the discriminator, the discriminator and tries to distinguish between a super-resolution and High-Resolution image and generate the adversarial loss which then backpropagated into the generator architecture.</p>
+								<div class="image main"><img src="images/generator.png" alt="" /></div>
+								<p>Discriminator Architecture: 
+									
+									The task of the discriminator is to discriminate between real HR images and generated SR images.   The discriminator architecture used in this paper is similar to DC- GAN architecture with LeakyReLU as activation. The network contains eight convolutional layers with of 3×3 filter kernels, increasing by a factor of 2 from 64 to 512 kernels. Strided convolutions are used to reduce the image resolution each time the number of features is doubled. The resulting 512 feature maps are followed by two dense layers and a leakyReLU applied between and a final sigmoid activation function to obtain a probability for sample classification. 
+								</p>
+								<div class="image main"><img src="images/discriminator.png" alt="" /></div>
 							</section>
 
 					</div>
