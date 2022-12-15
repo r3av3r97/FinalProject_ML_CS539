@@ -47,69 +47,52 @@
 								<header class="major">
 									<h1>Introduction</h1>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>The highly challenging task of estimating a highresolution (HR) image from its low-resolution (LR)
+								<div class="image main"><img src="images/intro.jpg" alt="" /></div>
+								<p style="text-align:center">
+									Fig 1. Low Resolution Image vs Super Resolved Image
+								</p>
+								<br>
+								<br>
+								<p>The highly challenging task of reconstructing a high-resolution (HR) image from its low-resolution (LR)
 									counterpart is referred to as super-resolution (SR). SR
 									received substantial attention from within the computer
 									vision research community and has a wide range of
-									applications [63, 71, 43].
-									4× SRGAN (proposed) original
-									Figure 1: Super-resolved image (left) is almost indistinguishable from original (right). [4× upscaling]
-									The ill-posed nature of the underdetermined SR problem
-									is particularly pronounced for high upscaling factors, for
-									which texture detail in the reconstructed SR images is
-									typically absent. The optimization target of supervised
+									applications: 
+									<br>
+									<br>&emsp;&emsp;1. Surveillance: to detect, identify, and perform facial recognition on low-resolution images obtained from security cameras. 
+									<br>&emsp;&emsp;2. Medical: capturing high-resolution MRI images can be tricky when it comes to scan time, spatial coverage, and signal-to-noise ratio (SNR).
+									<br>
+									<br>
+									The ill-posed aspect of the underdetermined SR problem is most obvious for high upscaling factors, which often lack texture detail in the reconstructed SR images.
+									The optimization target of supervised
 									SR algorithms is commonly the minimization of the mean
 									squared error (MSE) between the recovered HR image
 									and the ground truth. This is convenient as minimizing
 									MSE also maximizes the peak signal-to-noise ratio (PSNR),
 									which is a common measure used to evaluate and compare
-									SR algorithms [61]. However, the ability of MSE (and
+									SR algorithms. However, the ability of MSE (and
 									PSNR) to capture perceptually relevant differences, such
 									as high texture detail, is very limited as they are defined
-									based on pixel-wise image differences [60, 58, 26]. This
-									is illustrated in Figure 2, where highest PSNR does not
-									necessarily reflect the perceptually better SR result. The
-									1
-									arXiv:1609.04802v5 [cs.CV] 25 May 2017
-									bicubic SRResNet SRGAN original
-									(21.59dB/0.6423) (23.53dB/0.7832) (21.15dB/0.6868)
-									Figure 2: From left to right: bicubic interpolation, deep residual network optimized for MSE, deep residual generative
-									adversarial network optimized for a loss more sensitive to human perception, original HR image. Corresponding PSNR and
-									SSIM are shown in brackets. [4× upscaling]
-									perceptual difference between the super-resolved and original image means that the recovered image is not photorealistic as defined by Ferwerda [16].
-									In this work we propose a super-resolution generative
+									based on pixel-wise image differences. 
+									<br>
+									<br>Highest PSNR does not
+									necessarily reflect the perceptually better SR result.
+									
+									Perceptual difference between the super-resolved and original image means that the recovered image is not photorealistic.
+									In this project we implement a super-resolution generative
 									adversarial network (SRGAN) for which we employ a
 									deep residual network (ResNet) with skip-connection and
 									diverge from MSE as the sole optimization target. Different
-									from previous works, we define a novel perceptual loss using high-level feature maps of the VGG network [49, 33, 5]
-									combined with a discriminator that encourages solutions
+									from previous works, the author defined a novel perceptual loss using high-level feature maps of the VGG-16 network
+									combined with a discriminator that distinguishes super resolved images from their respective HR reference images. solutions
 									perceptually hard to distinguish from the HR reference
 									images. An example photo-realistic image that was superresolved with a 4× upscaling factor is shown in Figure 1.</p>
 
-								<p>In the adversarial nets framework, first proposed by Goodfellow et al.[1], the generative model is pitted
-									against an adversary, simultaneously training two models: the generative model G that captures the data
-									distribution, and the discriminative model D which estimates the probability of a sample coming from the
-									training data rather than G . The training procedure for G is to maximize the probability of D making a
-									mistake. This framework corresponds to a minimax two-player game.
-									Super-resolution (SR) refers to the task of restoring high-resolution images from one or more low-resolution
-									observations of the same scene[7]. The highly challenging task of estimating a high-resolution (HR) image
-									just from its low-resolution (LR) counterpart is referred to as single image super-resolution (SISR). The illposed nature of the underdetermined super-resolution is particularly pronounced for high upscaling factors,
-									for which texture detail in the reconstructed SISR images is typically absent. The optimization target of
-									supervised SISR algorithms is commonly the (a) minimization of the mean squared error (MSE) between
-									the recovered HR image and the ground truth which also maximizes the peak signal-to-noise ratio (PSNR)
-									and/or (b) maximization of the Structural Similarity Index (SSIM).
-									As far as the scope of this project is concerned, I have implemented the vanilla GAN[1] trained on the
-									MNIST dataset which generates similar handwritten digits from a single dimensional noisy latent space, and
-									the SRGAN[3], a generative adversarial network (GAN) for SSIR, which was first proposed by Ledig et al.
-									in 2016. To achieve photo-realistic results, I have used the perceptual loss function which consists of an
-									adversarial loss and a content loss. The adversarial loss intends to push the solution to the natural image
-									manifold using a discriminator network that is trained to differentiate between the super-resolved images
-									and original photo-realistic images, while the content loss is motivated by perceptual similarity instead of
-									similarity in pixel space. A deep residual network with skip connections has been used as the generator
-									network which was able to recover photo-realistic textures from heavily downsampled images on publicly
-									available natural images. An example photo-realistic image that was super-resolved with a 4× upscaling
-									factor is shown in Figure 1.
+								<p>In the framework of adversarial nets, the generative model is compared to an adversary while simultaneously training two models: 
+									the discriminative model D and the generative model G, which estimates the probability that a sample will come from the training data 
+									rather than G. The goal of the training process for G is to increase the likelihood that D will make a mistake. This framework corresponds 
+									to a minimax two-player game, where we minimize the generator loss and maximize the discriminator loss.
+								
 									<p>
 							</section>
 

@@ -45,11 +45,17 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Random Crop (Random Resized Crop)</h1>
-									<p>AAAA</p>
+									<h1>Random Crop</h1>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								
+								We first take HR image from the training dataset then we perform random crop and convert cropped image to LR image by using bicubic interpolation.
+								<div class="image main"><img src="images/random_crop.webp" alt="" /></div>
+								<div class="image main"><img src="images/random_crop2.webp" alt="" /></div>
+								<p style="text-align:center">
+									Fig. Random Crop Examples
+									</p>
 								<p>Random Cropping is the technique of cropping a part of the image randomly in the image. It is done to introduce regularization during training and reducing overfitting in the model. It is often applied at training time and due to which the model never gets the same image twice. It helps in generalizing the model better. Random Cropping increases the amount of training data, helps the model generalize better, introduces diversity in the data.</p>
+								<br>One of the significant implications of training on a low amount of data is the possibility of overfitting. Overfitting occurs when the model is said to have memorized the training data such that it performs better on it while performs poorly on unseen test data. In such cases, the amount of data is artificially increased to force a model to learn from many scenarios to reduce overfitting chances.
 							</section>
 
 					</div>

@@ -45,23 +45,97 @@
 						<!-- Post -->
 						<section class="post">
 							<header class="major">
-								<h1>PSNR and SSIM</h1>
+								<h1>Evaluation</h1>
+								<p>
+								We are comparing our model (SRGAN) against EDSR model keeping the baseline as Bicubic Interpolation and evaluating PSNR and SSIM of all the three comparisons.
+							
+								</p>
+							
+						</section>
+
+						<section class="post">
+							<header class="major">
+								<h2>Comparison Models</h2>
 							</header>
+							<h3>Bicubic Interpolation (baseline)</h3>
+							<p>Bicubic interpolation is a 2D system of using cubic splines or other polynomial technique for sharpening and enlarging digital images. It is commonly used in computer image editing software, by retouchers and editors when upscaling or resampling an image. When we interpolate an image, we are actually distorting the pixels from one grid to another.
+								<div class="image main"><img src="images/Bicubic_interpolation.png" alt="" /></div>
+								<p style="text-align:center">
+									Fig. Bicubic Interpolation Example
+									</p>
+							<br>
+							</p>
+							<p>We consider this as our baseline model. Any model should perform better than this technique.
+							</p>
+							<h3>EDSR</h3>
+							</header>
+							<p>The EDSR architecture is based on the SRResNet architecture and consists of multiple residual blocks. It uses constant scaling layers instead of batch normalization layers to produce consistent results (input and output have similar distributions, thus normalizing intermediate features may not be desirable). Instead of using an L2 loss (mean squared error), the authors employed an L1 loss (mean absolute error), which performs better empirically.
+								<div class="image main"><img src="images/edsr_arc.png" alt="" /></div>
+								<p style="text-align:center">
+									Fig. EDSR Architecture
+									</p>
+							</p>
+
+						</section>
+
+					
+						<!-- 
+						<section class="post">
+							<header class="major">
+								<h1>Caffe Model</h1>
+							</header>
+							<p>Caffe is a deep learning framework made with expression, speed, and modularity in mind. It is developed by Berkeley AI Research (BAIR) and by community contributors. Yangqing Jia created the project during his PhD at UC Berkeley.
+							</p>
+						</section>
+						 -->
+
+						<section class="post">
+							<header class="major">
+								<h1>Evaluation Metrics</h1>
+							</header>
+							<h3>PSNR</h3>
 							<p>Peak signal-to-noise ratio (PSNR) is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation. Because many signals have a very wide dynamic range, PSNR is usually expressed as a logarithmic quantity using the decibel scale.
 
 								PSNR is commonly used to quantify reconstruction quality for images and video subject to lossy compression.
-								PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as
-								PSNR is most commonly used to measure the quality of reconstruction of lossy compression codecs (e.g., for image compression). The signal in this case is the original data, and the noise is the error introduced by compression. When comparing compression codecs, PSNR is an approximation to human perception of reconstruction quality.
-
-								Typical values for the PSNR in lossy image and video compression are between 30 and 50 dB, provided the bit depth is 8 bits, where higher is better. The processing quality of 12-bit images is considered high when the PSNR value is 60 dB or higher.[3][4] For 16-bit data typical values for the PSNR are between 60 and 80 dB.[5][6] Acceptable values for wireless transmission quality loss are considered to be about 20 dB to 25 dB.[7][8]
-
-								In the absence of noise, the two images I and K are identical, and thus the MSE is zero.
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								PSNR is most easily defined via the mean squared error (MSE).
+								<div class="image main"><img src="images/PSNR.png" alt="" /></div>
+								<p style="text-align:center">
+									Fig. PSNR
+									</p>
+							<h3>SSIM</h3>
 								The structural similarity index measure (SSIM) is a method for predicting the perceived quality of digital television and cinematic pictures, as well as other kinds of digital images and videos. SSIM is used for measuring the similarity between two images. The SSIM index is a full reference metric; in other words, the measurement or prediction of image quality is based on an initial uncompressed or distortion-free image as reference.
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
+								<div class="image main"><img src="images/SSIM.png" alt="" /></div>
+								<p style="text-align:center">
+									Fig. SSIM
+									</p>
 							</p>
 						</section>
 
+						<section class="post">
+							<header class="major">
+								<h1>Results</h1>
+							</header>
+							<div class="image main"><img src="images/og.jpg" alt="Original Image" /></div>
+							<p style="text-align:center">
+							Original Image
+							</p>
+							<div class="image main"><img src="images/down.png" alt="Downscaled Image" /></div>
+							<p style="text-align:center">
+							Downscaled Image
+							</p>
+							<div class="image main"><img src="images/bicubic.png" alt="Upscaled Image using EDSR" /></div>
+							<p style="text-align:center">
+							Upscaled Image using Bicubic Interpolation
+							</p>
+							<div class="image main"><img src="images/edsr.png" alt="Upscaled Image using EDSR" /></div>
+							<p style="text-align:center">
+							Upscaled Image using EDSR
+							</p>
+							<div class="image main"><img src="images/up.png" alt="Upscaled Image using SRGAN" /></div>
+							<p style="text-align:center">
+							Upscaled Image using SRGAN
+							</p>
+						</section>
 
 					</div>		
 			</div>

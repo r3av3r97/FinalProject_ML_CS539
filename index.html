@@ -54,47 +54,12 @@
 							<article class="post featured">
 								<header class="major">
 									<h2><a href="#">Abstract</a></h2>
-									<p>Despite the breakthroughs in accuracy and speed of
-										single image super-resolution using faster and deeper convolutional neural networks, one central problem remains
-										largely unsolved: how do we recover the finer texture details
-										when we super-resolve at large upscaling factors? The
-										behavior of optimization-based super-resolution methods is
-										principally driven by the choice of the objective function.
-										Recent work has largely focused on minimizing the mean
-										squared reconstruction error. The resulting estimates have
-										high peak signal-to-noise ratios, but they are often lacking
-										high-frequency details and are perceptually unsatisfying in
-										the sense that they fail to match the fidelity expected at
-										the higher resolution. In this paper, we present SRGAN,
-										a generative adversarial network (GAN) for image superresolution (SR). To our knowledge, it is the first framework
-										capable of inferring photo-realistic natural images for 4×
-										upscaling factors. To achieve this, we propose a perceptual
-										loss function which consists of an adversarial loss and a
-										content loss. The adversarial loss pushes our solution to
-										the natural image manifold using a discriminator network
-										that is trained to differentiate between the super-resolved
-										images and original photo-realistic images. In addition, we
-										use a content loss motivated by perceptual similarity instead
-										of similarity in pixel space. Our deep residual network
-										is able to recover photo-realistic textures from heavily
-										downsampled images on public benchmarks. An extensive
-										mean-opinion-score (MOS) test shows hugely significant
-										gains in perceptual quality using SRGAN. The MOS scores
-										obtained with SRGAN are closer to those of the original
-										high-resolution images than to those obtained with any
-										state-of-the-art method.
-										
-										Generative Adversarial Networks (GAN) are an alternate way of estimating generative models via an
-										adversarial process where a game theoretic approach is involved to learn to generate from the training
-										distribution through minimax two-player game. As a part of my initial contributions to this project, I
-										had also implemented a vanilla GAN[1] to generate handwritten digits from a noisy latent space. Single
-										image super-resolution (SISR) has been a notoriously challenging ill-posed problem, which aims to obtain
-										a high-resolution output from one of its low-resolution versions. Despite the breakthroughs in accuracy
-										and speed of SISR using faster and deeper convolutional neural networks (CNN), one central problem to
-										recover the finer texture details super-resolving at large upscaling factors remains largely unsolved. With
-										this motivation, I have attempted to implement the idea proposed by Christian Ledig et al.[3] to use a
-										GAN comprising of deep convolutional networks for upscaling (4× factor) natural images to produce the
-										then state-of-the-art photo-realistic super-resolved images.
+									<p>A key issue still needs to be solved: how can we recover the finer texture information when we super-resolve at huge upscaling factors? Despite advances in accuracy and speed of single picture super-resolution utilizing faster and deeper convolutional neural networks, this issue is still at the forefront of the field. 
+										<br>The mean squared reconstruction error has been the main focus of past studies. Although the images reconstructed by the previous techniques have a high Peak-Signal-to-Noise-Ratio (PSNR), they still fail to retain the finer textural information. Here, we implement SRGAN, a generative adversarial network (GAN) for images' Super Resolution(SR) which was introduced first in the paper "Photo-Realistic Single Image Super-Resolution Using a Generative Adversarial
+										Network" in 2017. 
+										<br>According to our understanding, it was the first framework capable of predicting natural pictures that are photorealistic for upscaling factor of 4x. They provided a novel loss function which they named 'perceptual loss' that combines an adversarial loss with a content loss to accomplish this. With the aid of a discriminator network that has been trained to distinguish between super-resolved pictures and photo-realistic images, the adversarial loss pushes the solution to the natural image manifold. In addition, rather than using similarity in pixel space, they applied a content loss inspired by perceptual similarity. 
+										On open benchmarks, their deep residual network can salvage photorealistic textures from severely downscaled photos. GANs use a game theoretic approach to learn how to create from the training distribution through a minimax two-player game. 
+										<br>In this project, we aim to tackle the major issue of recovering Photo-Realistic images using SRGAN.
 									</p>
 								</header>
 								<a href="#" class="image main"><img src="images/index_abstract.jpeg" alt="" /></a>
