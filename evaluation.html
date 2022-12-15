@@ -32,7 +32,6 @@
 							<li><a href="image_preprocessing.html">Preprocessing</a></li>
 							<li class="active"><a href="evaluation.html">Evaluation</a></li>
 							<li><a href="conclusion.html">Conclusion</a></li>
-							<li><a href="add_features.html">Additional Features</a></li>
 							<li><a href="demo.html">Demo</a></li>
 						</ul>
 						<ul class="icons">
@@ -115,26 +114,97 @@
 							<header class="major">
 								<h1>Results</h1>
 							</header>
-							<div class="image main"><img src="images/og.jpg" alt="Original Image" /></div>
-							<p style="text-align:center">
-							Original Image
-							</p>
-							<div class="image main"><img src="images/down.png" alt="Downscaled Image" /></div>
-							<p style="text-align:center">
-							Downscaled Image
-							</p>
-							<div class="image main"><img src="images/bicubic.png" alt="Upscaled Image using EDSR" /></div>
-							<p style="text-align:center">
-							Upscaled Image using Bicubic Interpolation
-							</p>
-							<div class="image main"><img src="images/edsr.png" alt="Upscaled Image using EDSR" /></div>
-							<p style="text-align:center">
-							Upscaled Image using EDSR
-							</p>
-							<div class="image main"><img src="images/up.png" alt="Upscaled Image using SRGAN" /></div>
-							<p style="text-align:center">
-							Upscaled Image using SRGAN
-							</p>
+							<h3>Input Image</h3>
+							<div class="image side">
+							<div><img src="images/og.jpg" alt="Original Image" />
+								<p style="text-align:center">
+									Original Image
+								</p>
+							</div>
+							<div><img src="images/down.png" alt="Downscaled Image" />
+								<p style="text-align:center">
+									Downscaled Image
+								</p>
+							</div>
+							</div>
+							
+							<h3>Upscaled Images</h3>
+							<div class="image side">
+							<div><img src="images/bicubic.png" alt="Upscaled Image using Bicubic Interpolation" />
+								<p style="text-align:center">
+									Upscaled Image using Bicubic Interpolation
+									</p>
+							</div>
+							
+							<div><img src="images/edsr.png" alt="Upscaled Image using EDSR" />
+								<p style="text-align:center">
+									Upscaled Image using EDSR
+									</p>
+							</div>
+							
+							<div><img src="images/up.png" alt="Upscaled Image using SRGAN" />
+								<p style="text-align:center">
+									Upscaled Image using SRGAN
+									</p>
+							</div>
+							
+							</div>
+
+						</section>
+
+						<section class="post">
+							<header class="major">
+								<h1>Model Evaluation Table</h1>
+							</header>
+
+							<div class="table-wrapper">
+								<table>
+									<thead>
+										<tr>
+											<th>Metric</th>
+											<th>Bicubic</th>
+											<th>EDSR</th>
+											<th>SRGAN</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>SSIM</td>
+											<td>0.6737231448170838</td>
+											<td>0.72985888493371</td>
+											<td>0.7713633174218424</td>
+										</tr>
+										<tr>
+											<td>PSNR</td>
+											<td>30.75836837270601</td>
+											<td>30.84370073550196</td>
+											<td>31.38692263623604</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</section>
+
+						<section class="post">
+							<header class="major">
+								<h1>Training Statistics</h1>
+							</header>
+							<div class="image main"><img src="images/Discriminator_Loss_per_Epoch.png" alt="Discriminator Loss per Epoch" />
+								<p style="text-align:center">
+									Fig. Discriminator Loss per Epoch
+									</p>
+							</div>
+							<div class="image main"><img src="images/Generator_Loss_per_Epoch.png" alt="Generator Loss per Epoch" />
+								<p style="text-align:center">
+									Fig. Generator Loss per Epoch
+									</p>
+							</div>
+							<div class="image main"><img src="images/PSNR_per_Epoch.png" alt="PSNR Loss per Epoch" />
+								<p style="text-align:center">
+									Fig. PSNR Loss per Epoch
+									</p>
+							</div>
+
 						</section>
 
 					</div>		
